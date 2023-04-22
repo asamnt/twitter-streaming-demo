@@ -2,6 +2,7 @@ package com.twitter.streaming.demo.twitter.to.kafka.service;
 
 import com.twitter.streaming.demo.twitter.to.kafka.service.config.TwitterToKafkaServiceConfigData;
 import com.twitter.streaming.demo.twitter.to.kafka.service.runner.StreamRunner;
+import com.twitter.streaming.demo.twitter.to.kafka.service.runner.impl.TwitterKafkaStreamRunner;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -33,7 +34,6 @@ public class TwitterToKafkaServiceApplication implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         logger.info("App starts...");
-        System.out.println("hiii");
         logger.info(Arrays.toString(twitterToKafkaServiceConfigData.getTwitterKeywords().toArray(new String[]{})));
         streamRunner.start();
     }
