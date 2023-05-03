@@ -33,6 +33,7 @@ public class TwitterV2KafkaStreamRunner implements StreamRunner {
 
     @Override
     public void start() {
+        //we fetch bearer token from config
         String bearerToken = twitterToKafkaServiceConfigData.getTwitterV2BearerToken();
         if (null != bearerToken) {
             try {
@@ -51,7 +52,9 @@ public class TwitterV2KafkaStreamRunner implements StreamRunner {
 
     }
 
+    //rules for filtering the twitter stream
     private Map<String, String> getRules() {
+        //we are getting the filter words from config
         List<String> keywords = twitterToKafkaServiceConfigData.getTwitterKeywords();
         Map<String, String> rules = new HashMap<>();
         for (String keyword: keywords) {
